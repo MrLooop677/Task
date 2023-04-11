@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { Grid } from "@mui/material";
+import { AppContent, AppTitle, AppWrapper, FormContent } from "./app.style";
+import FormComp from "./component/formContent/form/FormComp";
+import { useState } from "react";
+import ShowData from "./component/showData/ShowData";
 
 function App() {
+  const [data, setData] = useState({});
+  const [loading, setLoading] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContent className="App">
+      <AppWrapper>
+        <AppTitle variant="h3" component="h1">
+          Searching Form
+        </AppTitle>
+        <FormContent>
+          <Grid container spacing={3}>
+            <Grid item xs={12} md={6}>
+              <FormComp setData={setData} setLoading={setLoading} />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <ShowData data={data} loading={loading} />
+            </Grid>
+          </Grid>
+        </FormContent>
+      </AppWrapper>
+    </AppContent>
   );
 }
 
