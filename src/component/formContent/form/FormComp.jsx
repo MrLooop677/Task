@@ -41,6 +41,8 @@ const FormComp = ({ setData, setLoading }) => {
       setData(data);
       setLoading(false);
     } catch (error) {
+      setData({});
+      setLoading(false);
       console.error(`Error posting data: ${error}`);
     }
   };
