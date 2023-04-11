@@ -2,14 +2,12 @@ import React from "react";
 import {
   Table,
   TableBody,
-  TableCell,
   TableContainer,
   TableHead,
   TableRow,
-  Paper,
   Box,
 } from "@mui/material";
-import { EmptyData } from "./showData.style";
+import { EmptyData, TableCellText } from "./showData.style";
 import Loading from "../Loading";
 
 const ShowData = ({ data, loading }) => {
@@ -24,37 +22,37 @@ const ShowData = ({ data, loading }) => {
         loading ? (
           <Loading />
         ) : (
-          <TableContainer sx={{ height: "100%" }} component={Paper}>
+          <TableContainer sx={{ height: "100%" }}>
             <Table>
               <TableHead>
                 <TableRow>
-                  <TableCell>Field</TableCell>
-                  <TableCell>Value</TableCell>
+                  <TableCellText>Field</TableCellText>
+                  <TableCellText>Value</TableCellText>
                 </TableRow>
               </TableHead>
               <TableBody>
                 <TableRow>
-                  <TableCell>Name</TableCell>
-                  <TableCell>{`${data?.fname} ${data?.mname} ${data?.lname}`}</TableCell>
+                  <TableCellText>Name</TableCellText>
+                  <TableCellText>{`${data?.fname} ${data?.mname} ${data?.lname}`}</TableCellText>
                 </TableRow>
                 <TableRow>
-                  <TableCell>Nationality</TableCell>
-                  <TableCell>{data?.nat}</TableCell>
+                  <TableCellText>Nationality</TableCellText>
+                  <TableCellText>{data?.nat}</TableCellText>
                 </TableRow>
                 <TableRow>
-                  <TableCell>Score</TableCell>
-                  <TableCell>{data?.screen_result[0]?.score}</TableCell>
+                  <TableCellText>Score</TableCellText>
+                  <TableCellText>{data?.screen_result[0]?.score}</TableCellText>
                 </TableRow>
 
                 <TableRow>
-                  <TableCell>Place of Birth</TableCell>
-                  <TableCell>{data?.nat}</TableCell>
+                  <TableCellText>Place of Birth</TableCellText>
+                  <TableCellText>{data?.nat}</TableCellText>
                 </TableRow>
                 <TableRow>
-                  <TableCell>Description</TableCell>
-                  <TableCell>
+                  <TableCellText>Description</TableCellText>
+                  <TableCellText>
                     {data?.Description ? data.Description : "Not Found"}
-                  </TableCell>
+                  </TableCellText>
                 </TableRow>
               </TableBody>
             </Table>
