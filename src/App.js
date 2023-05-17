@@ -17,7 +17,7 @@ function App() {
         <FormContent>
           <Grid container spacing={3}>
             <Grid item xs={12} md={6}>
-              <FormComp setData={setData} setLoading={setLoading} />
+              <FormComp data={data} setData={setData} setLoading={setLoading} />
             </Grid>
             <Grid item xs={12} md={6}>
               <ShowData data={data} loading={loading} />
