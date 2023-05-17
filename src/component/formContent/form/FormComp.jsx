@@ -1,10 +1,10 @@
 import { Box, Button } from "@mui/material";
-import React, { useState } from "react";
+import React, { useState,useEffect  } from "react";
 import SendIcon from "@mui/icons-material/Send";
 import SelectCountry from "../selectCountry/SelectCountry";
 import InputComp from "../Input/InputComp";
 
-const FormComp = ({ setData, setLoading }) => {
+const FormComp = ({ data, setData, setLoading }) => {
   const [userData, setUserData] = useState({
     fname: "",
     mname: "",
@@ -46,7 +46,9 @@ const FormComp = ({ setData, setLoading }) => {
       console.error(`Error posting data: ${error}`);
     }
   };
-
+    useEffect(() => {
+   HandleSubmit()
+  }, [data]);
   return (
     <Box sx={{ pl: 2, pr: 2 }}>
       <form onSubmit={HandleSubmit}>
